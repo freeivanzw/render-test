@@ -10,14 +10,12 @@ const PORT = process.env.PORT || 3000
 
 app.get('/', async (req, res) => {
   res.send('Hello World!!!!');
-  const createdUser = await User.create({
+  const createdUsers = await User.findAll({
     email: 'lololasdf',
     password: 'pass',
   })
 
-  console.log(createdUser)
-
-  res.end()
+  res.json(createdUsers)
 })
 
 const start = async () => {
